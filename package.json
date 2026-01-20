@@ -12,11 +12,23 @@
     "lint": "nx run-many --target=lint --all",
     "test": "nx run-many --target=test --all",
     "version": "nx run ng2-file-upload:version",
+    "prepare": "npm run build",
     "pretest": "run-s lint build",
     "test-coverage": "nx run-many --all --target=test --codeCoverage",
     "demo.gh-pages": "run-s build demo.build demo.deploy",
     "demo.deploy": "gh-pages -d dist/apps/demo",
     "flow.github-release": "conventional-github-releaser -p angular"
+  },
+  "module": "dist/libs/ng2-file-upload/fesm2022/ng2-file-upload.mjs",
+  "typings": "dist/libs/ng2-file-upload/index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./dist/libs/ng2-file-upload/package.json"
+    },
+    ".": {
+      "types": "./dist/libs/ng2-file-upload/index.d.ts",
+      "default": "./dist/libs/ng2-file-upload/fesm2022/ng2-file-upload.mjs"
+    }
   },
   "keywords": [
     "angular",
